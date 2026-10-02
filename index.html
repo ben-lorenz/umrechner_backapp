@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🍰 Backrechner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>🍰 Backrechner</h1>
+
+        <p class="subtitle">
+            Zutaten bequem auf jede Backform umrechnen.
+        </p>
+
+    </header>
+
+
+    <!-- ORIGINAL -->
+
+    <section class="card">
+
+        <h2>🍰 Originalgröße</h2>
+
+        <div class="grid">
+
+            <div class="field">
+
+                <label for="formType">
+                    Backform
+                </label>
+
+                <select id="formType">
+
+                    <option value="springform">
+                        Springform
+                    </option>
+
+                    <option value="blech">
+                        Blech
+                    </option>
+
+                    <option value="foermchen">
+                        Förmchen
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div id="originalInputs"></div>
+
+    </section>
+
+
+
+    <!-- ZIEL -->
+
+    <section class="card">
+
+        <h2>🧁 Zielgröße</h2>
+
+        <div id="targetInputs"></div>
+
+    </section>
+
+
+
+    <!-- ZUTATEN -->
+
+    <section class="card">
+
+        <div class="cardHeader">
+
+            <h2>🥣 Zutaten</h2>
+
+            <button
+                id="addIngredient"
+                class="secondaryButton"
+                type="button">
+
+                ➕ Zutat hinzufügen
+
+            </button>
+
+        </div>
+
+
+        <div class="tableWrapper">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th width="20%">
+                        Menge
+                    </th>
+
+                    <th width="20%">
+                        Einheit
+                        <span class="optional">(optional)</span>
+                    </th>
+
+                    <th>
+                        Zutat
+                        <span class="optional">(optional)</span>
+                    </th>
+
+                    <th width="60"></th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="ingredientsBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BUTTON -->
+
+    <div class="calculateArea">
+
+        <button
+            id="calculate"
+            class="primaryButton"
+            type="button">
+
+            🧁 Zutaten berechnen
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ERGEBNIS -->
+
+    <section class="card">
+
+        <h2>📋 Ergebnis</h2>
+
+        <div class="tableWrapper">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th width="20%">
+                        Neue Menge
+                    </th>
+
+                    <th width="20%">
+                        Einheit
+                    </th>
+
+                    <th>
+                        Zutat
+                    </th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="resultBody">
+
+                    <tr>
+
+                        <td colspan="3" class="emptyResult">
+
+                            Noch keine Berechnung durchgeführt.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
