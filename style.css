@@ -1,0 +1,685 @@
+/* =======================================================
+   Backrechner
+   Modern Blue Theme
+======================================================= */
+
+:root{
+
+    --primary:#2563eb;
+    --primaryHover:#1d4ed8;
+    --primaryLight:#dbeafe;
+
+    --background:#bcc9d8;
+
+    --card:#ffffff;
+
+    --text:#1e293b;
+    --textLight:#64748b;
+
+    --border:#d6dee8;
+
+    --danger:#dc2626;
+    --dangerLight:#fee2e2;
+
+    --success:#16a34a;
+
+    --radius:16px;
+
+    --shadow:
+        0 12px 28px rgba(15,23,42,.12);
+
+}
+
+
+/* =================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+/* =================================== */
+
+body{
+
+    font-family:
+
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    line-height:1.5;
+
+}
+
+
+/* =================================== */
+
+.container{
+
+    width:min(1050px,92%);
+
+    margin:45px auto;
+
+}
+
+
+/* =================================== */
+
+header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+header h1{
+
+    color:var(--primary);
+
+    font-size:2.7rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:var(--textLight);
+
+    font-size:1rem;
+
+}
+
+
+/* =================================== */
+
+.card{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:28px;
+
+    margin-bottom:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/* =================================== */
+
+.card h2{
+
+    color:var(--primary);
+
+    font-size:1.35rem;
+
+    margin-bottom:22px;
+
+    padding-left:14px;
+
+    border-left:5px solid var(--primary);
+
+}
+
+
+/* =================================== */
+
+.cardHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:22px;
+
+}
+
+
+/* =================================== */
+
+.inputRow{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(240px,1fr));
+
+    gap:20px;
+
+    margin-top:15px;
+
+}
+
+
+/* =================================== */
+
+.field{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+/* =================================== */
+
+label{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    color:var(--text);
+
+}
+
+
+/* =================================== */
+
+input,
+select{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    font-size:15px;
+
+    border-radius:10px;
+
+    border:1px solid var(--border);
+
+    background:white;
+
+    color:var(--text);
+
+    transition:.25s;
+
+}
+
+
+/* =================================== */
+
+input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+
+/* =================================== */
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+        0 0 0 4px rgba(37,99,235,.18);
+
+}
+
+
+/* =================================== */
+
+.tableWrapper{
+
+    overflow-x:auto;
+
+}
+
+
+/* =================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+
+/* =================================== */
+
+thead{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+/* =================================== */
+
+th{
+
+    padding:15px;
+
+    text-align:left;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+
+/* =================================== */
+
+td{
+
+    padding:12px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+
+/* =================================== */
+
+tbody tr{
+
+    transition:.2s;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+
+/* =================================== */
+
+.optional{
+
+    font-size:.72rem;
+
+    color:#dbeafe;
+
+    font-weight:400;
+
+}
+
+/* ===================================
+   Zutatenfelder
+=================================== */
+
+.ingredientRow input{
+
+    margin:0;
+
+}
+
+.ingredientAmount{
+
+    text-align:right;
+
+    font-weight:600;
+
+}
+
+.ingredientUnit{
+
+    text-align:center;
+
+}
+
+.ingredientName{
+
+    text-align:left;
+
+}
+
+
+/* ===================================
+   Ergebnis
+=================================== */
+
+.resultAmount{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    font-size:1.02rem;
+
+}
+
+.emptyResult{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:var(--textLight);
+
+    font-style:italic;
+
+}
+
+
+/* ===================================
+   Buttons
+=================================== */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-family:inherit;
+
+}
+
+
+/* Hauptbutton */
+
+.primaryButton{
+
+    background:linear-gradient(
+        180deg,
+        #3b82f6,
+        #2563eb
+    );
+
+    color:white;
+
+    padding:15px 38px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    box-shadow:
+        0 6px 18px rgba(37,99,235,.35);
+
+}
+
+.primaryButton:hover{
+
+    background:linear-gradient(
+        180deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.45);
+
+}
+
+.primaryButton:active{
+
+    transform:translateY(0);
+
+}
+
+
+/* Nebenbutton */
+
+.secondaryButton{
+
+    background:#eff6ff;
+
+    color:var(--primary);
+
+    padding:11px 18px;
+
+    border-radius:10px;
+
+    border:1px solid #bfdbfe;
+
+    font-weight:600;
+
+}
+
+.secondaryButton:hover{
+
+    background:#dbeafe;
+
+}
+
+
+/* Löschen */
+
+.deleteButton{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:var(--dangerLight);
+
+    color:var(--danger);
+
+    font-size:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.deleteButton:hover{
+
+    background:#fecaca;
+
+    transform:scale(1.08);
+
+}
+
+
+/* ===================================
+   Buttonbereich
+=================================== */
+
+.calculateArea{
+
+    text-align:center;
+
+    margin:35px 0;
+
+}
+
+
+/* ===================================
+   Kartenanimation
+=================================== */
+
+.card{
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 18px 36px rgba(15,23,42,.15);
+
+}
+
+
+/* ===================================
+   Scrollbar
+=================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#dbe4ee;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#8fa8c4;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#6d8db3;
+
+}
+
+
+/* ===================================
+   Kleine Animationen
+=================================== */
+
+input,
+select,
+button{
+
+    transition:
+        .2s ease;
+
+}
+
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media (max-width:900px){
+
+    .container{
+
+        width:95%;
+
+    }
+
+}
+
+
+@media (max-width:700px){
+
+    header h1{
+
+        font-size:2rem;
+
+    }
+
+    .subtitle{
+
+        font-size:.95rem;
+
+    }
+
+    .card{
+
+        padding:20px;
+
+    }
+
+    .cardHeader{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .inputRow{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .primaryButton,
+    .secondaryButton{
+
+        width:100%;
+
+    }
+
+    table{
+
+        min-width:600px;
+
+    }
+
+}
+
+
+/* ===================================
+   Dezente Trennlinie zwischen Karten
+=================================== */
+
+.card + .card{
+
+    margin-top:25px;
+
+}
+
+
+/* ===================================
+   Schöne Textauswahl
+=================================== */
+
+::selection{
+
+    background:#bfdbfe;
+
+    color:#1e3a8a;
+
+}
